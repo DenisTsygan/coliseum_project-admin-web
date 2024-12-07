@@ -36,21 +36,25 @@ function App() {
     setIsAuth(true)
     fetchData()
   }
+  const onSuccessLogout = (id:string)=>{
+    console.log("DELETED onSuccessLogout")
+    const filteredSessns  = sessions.filter((el)=>el.id !== id)
+    setSessions(filteredSessns)
+  }
   return (
     <>
     {!isAuth?
        <FormLogin props_notify_parent={hideFormLogin}/>
        :
        <div>
-        <h1>Sessions</h1>
-      <h1>{sessions.toString()}</h1>
-      <ul>
+        <h1 className='w-full text-6xl font-bold text-center'>Sessions</h1>
+      <div className='flex flex-wrap justify-center'>
         {sessions.map(s=>
-          <li key={s.id}>
-            <Session session={s} />
-          </li>
+          <div key={s.id}>
+            <Session session={s} funcOnSuccessLogout={onSuccessLogout}/>
+          </div>
         )}
-      </ul>
+      </div>
        </div>
     }
     </>

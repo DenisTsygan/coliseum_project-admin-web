@@ -3,10 +3,11 @@ import type { AxiosInstance } from "axios";
 import { ERR_NETWORK, LS_KEY_ACCESS_TOKEN } from "@/const/index";
 
 let baseUrl = import.meta.env.VITE_BACKEND_API_BASE_URL
+let loginBaseUrl = baseUrl
 if(!import.meta.env.PROD){
-  baseUrl = import.meta.env.VITE_BACKEND_API_BASE_URL
+  baseUrl = import.meta.env.VITE_BACKEND_API_BASE_URL+"/api"
 }else{
-  baseUrl = "/"
+  baseUrl = "/api"
 }
 //export const BASE_URL_BACKEND:string = baseUrl
 
@@ -56,7 +57,7 @@ $api.interceptors.response.use(
 )
 
 const $loginApi:AxiosInstance = axios.create({
-  baseURL: baseUrl ,
+  baseURL: loginBaseUrl ,
 });
 
 

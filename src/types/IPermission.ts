@@ -1,4 +1,4 @@
 export default interface IPermission{
-    id: string,
+    id: number,
     name: string,
 }

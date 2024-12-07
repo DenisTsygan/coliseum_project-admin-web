@@ -1,7 +1,7 @@
-function Button({ label , props_notify_parent }: { label: string , props_notify_parent: Function }) {
+function Button({ label , props_notify_parent, color }: { label: string , props_notify_parent: Function, color?:string }) {
     return (
         <>
-            <button className=" bg-slate-500"  onClick={()=>{props_notify_parent()}}>{label}</button>
+            <button className={ color ? color :" bg-slate-500 "}  onClick={()=>{props_notify_parent()}}>{label}</button>
         </>
     )
 }
