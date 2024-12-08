@@ -7,7 +7,7 @@ function FormLogin({ props_notify_parent }: { props_notify_parent: Function }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const login = async()=>{
-    let res = await loginRequest(email,password,"123123123tests")
+    let res = await loginRequest(email,password,"123123123tests")//TODO fingerprint generate
     if(res){
       props_notify_parent();
     }
@@ -17,7 +17,7 @@ function FormLogin({ props_notify_parent }: { props_notify_parent: Function }) {
         <div className=' flex justify-center'>
           <div>
             <h1 className="text-3xl font-bold underline">
-              Hello world! fdsds
+              Login as Admin!
             </h1>
             <Input label="email" updateValue={(value: string) => setEmail(value)}/>
             <Input label='password' updateValue={(value: string) => setPassword(value)}/>

@@ -5,6 +5,14 @@ export const ERR_NETWORK = "ERR_NETWORK"
 
 //localstorage
 export const LS_KEY_ACCESS_TOKEN ="access_token"
+export const LS_KEY_NEXT_PAGE_LOGIN ="next_page"
+
+//navigation
+export const NAVIGATE_ROUTE_SESSIONS:NAVIGATE_ROUTES = "sessions" 
+export const NAVIGATE_ROUTE_USERS:NAVIGATE_ROUTES = "users" 
+export const NAVIGATE_ROUTE_LOGIN:NAVIGATE_ROUTES = "login" 
+export type NAVIGATE_ROUTES = "sessions" | "users"|"login" 
+
 
 export const TEST_SESSIONS:Array<ISession> = [{
     id: "0ee18bce-123-4a7d-9400-das",

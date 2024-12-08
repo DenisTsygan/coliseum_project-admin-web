@@ -2,6 +2,7 @@ import { LS_KEY_ACCESS_TOKEN,  } from "@/const"//TEST_SESSIONS
 import $api, { $apiLogin } from "@/plugins/axiosPlugin"
 import IResponceLogin from "@/types/IResponceLogin"
 import type ISession from "@/types/ISession"
+import IUser from "@/types/IUser"
 
 export const fetchSessions = async():Promise<ISession[] | undefined>=>{
     //TODO test 
@@ -16,6 +17,37 @@ export const fetchSessions = async():Promise<ISession[] | undefined>=>{
         console.log(error)
     }
     //return TEST_SESSIONS
+}
+
+export const fetchUsers = async():Promise<IUser[] | undefined>=>{
+    try {
+        var responce  = await $api.get("users")
+        console.log("🚀 ~ fetchUsers ~ responce:")
+        console.log(responce)
+        console.log(responce.data)
+        return responce.data as IUser[]
+    } catch (error) {
+        console.error(error)
+        console.log(error)
+    }
+}
+
+export const registerUserRequest = async(email:string, password:string, userName:string,roleId:number ):Promise<IUser | undefined>=>{
+    try {
+        var responce  = await $api.post("register",{
+            email:email,
+            password:password,
+            userName:userName,
+            roleId:roleId
+        })
+        console.log("🚀 ~ registerUserRequest ~ responce:")
+        console.log(responce)
+        return responce.data as IUser
+    } catch (error) {
+        console.error(error)
+        console.log(error)
+    }
+
 }
 
 export const loginRequest = async(email:string, password:string, fingerprint:string):Promise<boolean | undefined>=>{

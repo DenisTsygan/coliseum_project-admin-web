@@ -12,6 +12,7 @@ export default ({ mode }:any) => {
     
     return defineConfig({
       plugins: [react()],
+      base: process.env.VITE_BASE_URL || '/',
       resolve: {
         alias: {
           '@': path.resolve(__dirname, 'src'),
