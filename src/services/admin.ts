@@ -80,3 +80,12 @@ export const logoutByIdRequest = async(rsid:string):Promise<string | undefined>=
     }
 
 }
+
+export const deleteByIdRequest = async(userId:string):Promise<string | undefined>=>{
+    try {
+        var responce  = await $api.delete("users/"+userId)
+        return responce.data as string
+    } catch (error) {
+        console.error(error)
+    }
+}

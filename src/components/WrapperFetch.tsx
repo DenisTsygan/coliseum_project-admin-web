@@ -8,6 +8,7 @@ interface ComponentProps<T extends IData> {
     Component: React.ComponentType<{
       data: T[], 
       onSuccessLogout?: (id: string) => void ,
+      onSuccessDeleteUser?: (id: string) => void ,
       onSuccessRegister?: (user:T)=>void
     }>,
     funcFetch: Function,
@@ -18,7 +19,7 @@ interface ComponentProps<T extends IData> {
 function WrapperFetch<T extends IData>( {
     Component, 
     funcFetch, 
-    nextNavigateRoute
+    nextNavigateRoute,
   }:ComponentProps<T>) {
     const [data, setData] = useState<T[]>([])
     const [isLoading , setIsLoading] = useState(true)
@@ -26,7 +27,7 @@ function WrapperFetch<T extends IData>( {
     const showLogin = ()=>{
         navigate("/"+NAVIGATE_ROUTE_LOGIN)
       }
-      const onSuccessLogout = (id:string)=>{
+      const onSuccessLogout = (id:string)=>{//TODO rename func
         console.log("DELETED onSuccessLogout")
         const filteredData  = data.filter((el)=>el.id !== id)
         setData(filteredData)
@@ -63,6 +64,7 @@ function WrapperFetch<T extends IData>( {
           data={data} 
           onSuccessLogout={onSuccessLogout} 
           onSuccessRegister={onSuccessRegister}
+          onSuccessDeleteUser={onSuccessLogout}
         />
       }
       </>

@@ -2,12 +2,13 @@ import Input from '@/components/ui/Input'
 import Button from '@/components/ui/Button'
 import {  loginRequest } from '@/services/admin'
 import {  useState } from 'react';
+import { FINGERPRINT } from '@/const';
 
 function FormLogin({ props_notify_parent }: { props_notify_parent: Function }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const login = async()=>{
-    let res = await loginRequest(email,password,"123123123tests")//TODO fingerprint generate
+    let res = await loginRequest(email,password,FINGERPRINT)//TODO fingerprint generate
     if(res){
       props_notify_parent();
     }

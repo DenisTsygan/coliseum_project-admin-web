@@ -1,8 +1,9 @@
 import ISession from "@/types/ISession";
 
 //err
-export const ERR_NETWORK = "ERR_NETWORK"
+//export const ERR_NETWORK = "ERR_NETWORK"
 
+export const FINGERPRINT = "123123123tests"
 //localstorage
 export const LS_KEY_ACCESS_TOKEN ="access_token"
 export const LS_KEY_NEXT_PAGE_LOGIN ="next_page"

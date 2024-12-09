@@ -4,10 +4,11 @@ import FormRegister from "@/components/FormRegister";
 import Divider from "@/components/ui/Divider";
 interface ComponentProps {
     data: Array<IUser>;
-    onSuccessRegister?: (user:IUser)=>void
+    onSuccessRegister?: (user:IUser)=>void;
+    onSuccessDeleteUser?: (id:string)=>void;
 }
 
-function Users({data,onSuccessRegister}:ComponentProps) {
+function Users({data,onSuccessRegister,onSuccessDeleteUser}:ComponentProps) {
     return (
       <>
         <div>
@@ -17,7 +18,7 @@ function Users({data,onSuccessRegister}:ComponentProps) {
         <div className='flex flex-wrap justify-center'>
         {data.map(s=>
           <div key={s.id}>
-            <User user={s} />
+            <User isInsideRefreshSession={false} user={s} onSuccessDeleteUser={onSuccessDeleteUser}/>
           </div>
         )}
       </div>

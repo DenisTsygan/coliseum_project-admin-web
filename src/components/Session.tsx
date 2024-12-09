@@ -32,7 +32,7 @@ function Session({session, funcOnSuccessLogout}:ComponentProps) {
           <div className="text-center flex justify-between p-2">UserAgent:<div className="italic">{session.userAgent}</div></div>
           <Divider/>
           <div>
-            <User user={session.user}/>
+            <User isInsideRefreshSession={true} user={session.user}/>
           </div>
           <Divider/>
           <div className="flex justify-center p-2"><Button props_notify_parent={logoutSession} label="Logout" color="bg-red-400"></Button></div>
