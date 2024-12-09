@@ -1,6 +1,7 @@
-import { LS_KEY_ACCESS_TOKEN,  } from "@/const"//TEST_SESSIONS
+import { LS_KEY_ACCESS_TOKEN  } from "@/const"//TEST_SESSIONS
 import $api, { $apiLogin } from "@/plugins/axiosPlugin"
 import IResponceLogin from "@/types/IResponceLogin"
+import IRole from "@/types/IRole"
 import type ISession from "@/types/ISession"
 import IUser from "@/types/IUser"
 
@@ -30,6 +31,21 @@ export const fetchUsers = async():Promise<IUser[] | undefined>=>{
         console.error(error)
         console.log(error)
     }
+    //return TEST_USERS as IUser[]
+}
+
+export const fetchRoles = async():Promise<IRole[] | undefined>=>{
+    try {
+        var responce  = await $api.get("roles")
+        console.log("🚀 ~ fetchUsers ~ responce:")
+        console.log(responce)
+        console.log(responce.data)
+        return responce.data as IRole[]
+    } catch (error) {
+        console.error(error)
+        console.log(error)
+    }
+    //return TEST_ROLES 
 }
 
 export const registerUserRequest = async(email:string, password:string, userName:string,roleId:number ):Promise<IUser | undefined>=>{

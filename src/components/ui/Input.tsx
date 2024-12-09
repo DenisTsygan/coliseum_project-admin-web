@@ -11,9 +11,11 @@ function Input({ label , updateValue  }: { label: string , updateValue : Functio
     return (
         <>
 
-            <div className="">
+            <div className="flex justify-center">
+              <div>
                 <label>{label}</label>
                 <input value={inputValue} onChange={handleChange} className="bg-red-200 m-4" placeholder="write" ></input>
+              </div>
             </div>
         </>
     )

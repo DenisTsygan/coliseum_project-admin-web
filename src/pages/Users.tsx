@@ -11,13 +11,13 @@ interface ComponentProps {
 function Users({data,onSuccessRegister,onSuccessDeleteUser}:ComponentProps) {
     return (
       <>
-        <div>
+        <div >
           <FormRegister props_notify_parent={onSuccessRegister}/>
           <Divider/>
         <h1 className='w-full text-6xl font-bold text-center'>Users</h1>
         <div className='flex flex-wrap justify-center'>
         {data.map(s=>
-          <div key={s.id}>
+          <div className="m-6" key={s.id}>
             <User isInsideRefreshSession={false} user={s} onSuccessDeleteUser={onSuccessDeleteUser}/>
           </div>
         )}

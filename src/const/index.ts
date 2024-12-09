@@ -1,4 +1,6 @@
+import IRole from "@/types/IRole";
 import ISession from "@/types/ISession";
+import IUser from "@/types/IUser";
 
 //err
 //export const ERR_NETWORK = "ERR_NETWORK"
@@ -14,7 +16,102 @@ export const NAVIGATE_ROUTE_USERS:NAVIGATE_ROUTES = "users"
 export const NAVIGATE_ROUTE_LOGIN:NAVIGATE_ROUTES = "login" 
 export type NAVIGATE_ROUTES = "sessions" | "users"|"login" 
 
+export const TEST_ROLES:Array<IRole> = [
+  {
+    id: 1,
+    name: "Admin",
+    permissions: [
+        {
+            id: 1,
+            name: "ADD_ACCOUNTANT"
+        },
+        {
+            id: 4,
+            name: "WATCH_SESSIONS"
+        }
+    ]
+},
+{
+  id: 2,
+  name: "Accountant",
+  permissions: [
+      {
+          id: 2,
+          name: "WATCH_DATA"
+      },
+      {
+          id: 3,
+          name: "SEND_NOTIFICATION"
+      }
+  ]
+}
+]
 
+export const TEST_USERS:Array<IUser> = [
+  {
+      id: "00000000-0000-0000-0000-000000000001",
+      userName: "admin",
+      email: "admin",
+      roles: [
+          {
+              id: 1,
+              name: "Admin",
+              permissions: [
+                  {
+                      id: 1,
+                      name: "ADD_ACCOUNTANT"
+                  },
+                  {
+                      id: 4,
+                      name: "WATCH_SESSIONS"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      id: "275da6dc-90ed-487b-b270-4fe6c57ce79a",
+      userName: "gwrgwg",
+      email: "wqrqwrqwr",
+      roles: [
+          {
+              id: 1,
+              name: "Admin",
+              permissions: [
+                  {
+                      id: 1,
+                      name: "ADD_ACCOUNTANT"
+                  },
+                  {
+                      id: 4,
+                      name: "WATCH_SESSIONS"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      id: "e1dd880a-4561-48f7-827b-0ec3096bfbdc",
+      userName: "haha",
+      email: "lol",
+      roles: [
+          {
+              id: 2,
+              name: "Accountant",
+              permissions: [
+                  {
+                      id: 2,
+                      name: "WATCH_DATA"
+                  },
+                  {
+                      id: 3,
+                      name: "SEND_NOTIFICATION"
+                  }
+              ]
+          }
+      ]
+  }
+]
 export const TEST_SESSIONS:Array<ISession> = [{
     id: "0ee18bce-123-4a7d-9400-das",
     refreshToken: "1872471c-59f2-483f-b48b-f5a084dca890",
